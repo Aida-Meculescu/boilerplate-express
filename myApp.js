@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }))
 console.log("Hello World")
 
 
@@ -79,7 +80,7 @@ app.post("/name", function (req, res) {
     var string = req.body.first + " " + req.body.last;
     res.json({ name: string });
 });
-app.use(bodyParser.urlencoded({ extended: false }))
+
 
 
 
