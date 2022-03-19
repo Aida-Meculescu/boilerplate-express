@@ -73,6 +73,12 @@ app.get("/name", (req, res) => {
 })
 
 
+app.post("/name", function (req, res) {
+    // Handle the data in the request
+    var string = req.body.first + " " + req.body.last;
+    res.json({ name: string });
+});
+
 
 
 
