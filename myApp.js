@@ -15,6 +15,19 @@ const logger = (req, res, next) => {
 }
 app.use(logger);
 
+app.get(
+    "/now",
+    (req, res, next) => {
+        req.time = new Date().toString();
+        next();
+    },
+    (req, res) => {
+        res.send({
+            time: req.time
+        });
+    }
+);
+
 // app.get("/", (req, res) => {
 //     res.send("Hello Express");
 // });
