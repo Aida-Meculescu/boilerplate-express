@@ -4,6 +4,17 @@ var app = express();
 
 console.log("Hello World")
 
+
+const logger = (req, res, next) => {
+    let Client_Ip = req.ip
+    let path = req.path
+    let method = req.method
+
+    console.log(method + " " + path + " - " + Client_Ip);
+    next()
+}
+app.use(logger);
+
 // app.get("/", (req, res) => {
 //     res.send("Hello Express");
 // });
